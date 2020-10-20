@@ -1,1 +1,1 @@
-# live-chat
+Implementation simple live chat using laravel Broadcasting.
