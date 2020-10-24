@@ -12,7 +12,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.welcome');
 });
+
+
+Route::get('/chat-room', function() {
+    return view('pages.live-chat');
+});
+
+Route::get('/fire', function () {
+    event(new \App\Events\TestEvent());
+    return 'ok';
+});
+
+
