@@ -25,14 +25,16 @@ class ChattingController extends Controller
     /**
      * Chatting room view
      */
-    public function chattingView() {
+    public function chattingView()
+    {
         return view('pages.live-chat', ['user' => Auth::user(), 'messages' => Message::all()]);
     }
 
     /**
      * Push new message
      */
-    public function newMessage(StoreMessageRequest $request, User $user) {
+    public function newMessage(StoreMessageRequest $request, User $user)
+    {
         $this->service->newMessage($request, $user);
         return response('Success', 200);
     }
