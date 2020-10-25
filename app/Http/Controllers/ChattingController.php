@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\ChattingService;
 use App\Models\User;
+use App\Models\Message;
+use App\Http\Requests\StoreMessageRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ChattingController extends Controller
@@ -23,13 +25,13 @@ class ChattingController extends Controller
      * Chatting room view
      */
     public function chattingView() {
-        return view('pages.live-chat', ['user' => Auth::user()]);
+        return view('pages.live-chat', ['user' => Auth::user(), 'messages' => Message::all()]);
     }
 
     /**
      * Push new message
      */
-    public function newMessage(Request $request, User $user) {
+    public function newMessage(StoreMessageRequest $request, User $user) {
         return $this->service->newMessage($request, $user);
     }
 }

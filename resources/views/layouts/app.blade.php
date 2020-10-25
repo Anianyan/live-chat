@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
     <link href="{{asset('/css/main.css')}}" rel="stylesheet">
 </head>
 <body>
@@ -70,7 +71,7 @@
         </main>
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('/js/app.js') }}" defer></script>
         <script src="{{ asset('/js/chat.js') }}" defer></script>
         <script src="{{ asset('/js/main.js') }}" defer></script>
     </div>

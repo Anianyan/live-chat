@@ -8,9 +8,19 @@ $(document).ready(function () {
             const userId = $('input[name=user-id]').val();
             const userName = $('input[name=user-name]').val();
 
-            chat.appendNewMessage(userName, message);
             chat.sendMessage(userId, message);
             $(this).val("");
         }
     });
+
+    // Scroll Last messages.
+    const chatArea = document.getElementById('chat-area');
+    chatArea.scrollTop = chatArea.scrollHeight;
 });
+
+// Listen new messages
+Echo.channel('chatting')
+    .listen('.ChattingEvent', e => {
+        const { message, user } = e;
+        chat.appendNewMessage(user, message);
+    });

@@ -6,8 +6,11 @@
 	<p id="name-area"></p>
 	<div id="chat-wrap">
 		<div id="chat-area">
-			<p><span>Guest</span>asfsaf </p>
-			<p><span>Guest</span>dfsf </p>
+			@if ($messages)
+				@foreach ($messages as $message)
+					<p><span>{{ $message->user->name }}</span>{{ $message->message }} </p>
+				@endforeach
+			@endif
 		</div>
 	</div>
 	<form id="send-message-area">

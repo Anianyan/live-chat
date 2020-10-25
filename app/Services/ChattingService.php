@@ -4,7 +4,9 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Repositories\ChattingRepository;
+use App\Http\Requests\StoreMessageRequest;
 use App\Models\User;
+use App\Events\ChattingEvent;
 
 class ChattingService
 {
@@ -21,7 +23,14 @@ class ChattingService
     /**
      * Push new message
      */
-    public function newMessage(Request $request, User $user) {
-        // return $this->repo->newMessage($request, $user);
+    public function newMessage(StoreMessageRequest $request, User $user) {
+        $message = $request->input('message');
+        // Create event instance.
+        event(new ChattingEvent([
+            'message' => $message,
+            'user' => $user->name,
+        ]));
+
+        return $this->repo->newMessage($user, $message);
     }
 }

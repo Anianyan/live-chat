@@ -15,7 +15,14 @@ class Message extends Model
      * @var array
      */
     protected $fillable = [
+        'sender_id',
         'message',
     ];
 
+    /**
+     * Get user
+     */
+    public function user() {
+        return $this->belongsTo('App\Models\User', 'sender_id');
+    }
 }
