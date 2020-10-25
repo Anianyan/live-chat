@@ -20,5 +20,5 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/chat-room', 'App\Http\Controllers\ChattingController@chattingView');
 
-    Route::post('ajax/message', 'App\Http\Controllers\ChattingController@newMessage');
+    Route::post('ajax/message/{user}', 'App\Http\Controllers\ChattingController@newMessage');
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\ChattingService;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ChattingController extends Controller
 {
@@ -22,7 +23,7 @@ class ChattingController extends Controller
      * Chatting room view
      */
     public function chattingView() {
-        return view('pages.live-chat');
+        return view('pages.live-chat', ['user' => Auth::user()]);
     }
 
     /**

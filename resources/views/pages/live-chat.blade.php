@@ -12,7 +12,9 @@
 	</div>
 	<form id="send-message-area">
 		<p>Your message: </p>
-		<textarea id="sendie" maxlength="100" spellcheck="false"></textarea>
+		<input type="hidden" name="user-id" value="{{ $user->id }}">
+		<input type="hidden" name="user-name" value="{{ $user->name }}">
+		<textarea id="message-field" maxlength="100" spellcheck="false"></textarea>
 	</form>
 </div>
 @endsection
