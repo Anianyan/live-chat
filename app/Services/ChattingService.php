@@ -7,6 +7,7 @@ use App\Repositories\ChattingRepository;
 use App\Http\Requests\StoreMessageRequest;
 use App\Models\User;
 use App\Events\ChattingEvent;
+use App\Jobs\SendEmail;
 
 class ChattingService
 {
@@ -31,6 +32,16 @@ class ChattingService
             'user' => $user->name,
         ]));
 
-        return $this->repo->newMessage($user, $message);
+        // Store to db
+        $this->repo->newMessage($user, $message);
+
+        // Send email via queue.
+        SendEmail::dispatchNow([
+            'email' => $user->email,
+            'message' => $message,
+            'user_name' => $user->name,
+        ]);
+
+        return true;
     }
 }

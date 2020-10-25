@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Services\ChattingService;
 use App\Models\User;
 use App\Models\Message;
@@ -32,6 +33,7 @@ class ChattingController extends Controller
      * Push new message
      */
     public function newMessage(StoreMessageRequest $request, User $user) {
-        return $this->service->newMessage($request, $user);
+        $this->service->newMessage($request, $user);
+        return response('Success', 200);
     }
 }
