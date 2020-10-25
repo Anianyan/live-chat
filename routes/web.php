@@ -12,19 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 Route::get('/', function () {
     return view('pages.welcome');
 });
 
+Auth::routes();
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/chat-room', 'App\Http\Controllers\ChattingController@chattingView');
 
-Route::get('/chat-room', function() {
-    return view('pages.live-chat');
+    Route::post('ajax/message', 'App\Http\Controllers\ChattingController@newMessage');
 });
-
-Route::get('/fire', function () {
-    event(new \App\Events\TestEvent());
-    return 'ok';
-});
-
-

@@ -1,25 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-	<h2>Chat Messages</h2>
-
-	<div class="container">
-		<p>Hello. How are you today?</p>
-		<span class="time-right">11:00</span>
+<div id="page-wrap">
+	<h2>Chat Room</h2>
+	<p id="name-area"></p>
+	<div id="chat-wrap">
+		<div id="chat-area">
+			<p><span>Guest</span>asfsaf </p>
+			<p><span>Guest</span>dfsf </p>
+		</div>
 	</div>
-
-	<div class="container darker">
-		<p>Hey! I'm fine. Thanks for asking!</p>
-		<span class="time-left">11:01</span>
-	</div>
-
-	<div class="container">
-		<p>Sweet! So, what do you wanna do today?</p>
-		<span class="time-right">11:02</span>
-	</div>
-
-	<div class="container darker">
-		<p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-		<span class="time-left">11:05</span>
-	</div>
+	<form id="send-message-area">
+		<p>Your message: </p>
+		<textarea id="sendie" maxlength="100" spellcheck="false"></textarea>
+	</form>
+</div>
 @endsection
