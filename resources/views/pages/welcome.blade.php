@@ -36,14 +36,6 @@
                     @endif
                 </div>
             @endif
-
-            <script src="{{ asset('/js/app.js') }}"></script>
-            <script>
-                Echo.channel('test')
-                    .listen('.TestEvent', e => {
-                        console.log(e)
-                    })
-            </script>
             <div>
                 <a href="{{ url('chat-room') }}">Go To live chat</a>
             </div>

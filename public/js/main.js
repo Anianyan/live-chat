@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
     });
 
-    // Scroll Last messages.
+    // Scroll to the Last messages.
     const chatArea = document.getElementById('chat-area');
     chatArea.scrollTop = chatArea.scrollHeight;
 });

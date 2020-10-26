@@ -10,8 +10,6 @@ const chat = {
                 'message': message,
             },
             dataType: "json",
-            success: function (data) {
-            },
         });
     },
 
